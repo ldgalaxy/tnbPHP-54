@@ -10,12 +10,11 @@ if(isset($_POST['text']) && isset($_POST['searchfor']) && isset($_POST['replacew
 
    if(!empty($text) && !empty($search) && !empty($replace)){
       while($strpos = strpos($text, $search, $offset)){
-      echo $strpos . '<br>';
-      echo $offset = $strpos + $search_length . '<br>';         
-      
+      $offset = $strpos + $search_length . '<br>';         
+      $text = substr_replace($text, $replace, $strpos, $search_length);
       }      
 
-
+      echo $text;
        
    }else{
       echo 'Please fill in all fields.';
